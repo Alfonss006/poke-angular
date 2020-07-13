@@ -1,0 +1,33 @@
+
+<div *ngIf="!isLoading then card else loading">
+</div>
+<ng-template #card>
+<mat-card (click)="onClick()">
+  <mat-card-header>
+    <mat-card-title><a routerLink="/detalles/{{pokemon.id}}">{{pokemon.name}} </a> <span class="spacer"></span> <button class="card-number">{{pokemon.id}}</button></mat-card-title>
+    <mat-card-subtitle *ngIf="ancestor">evoluciona de {{ancestor}} </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="!ancestor"><br></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}">
+  </mat-card-content>
+  <mat-card-actions >
+    <button  *ngFor=" let type  of pokemon.types" mat-button class="{{type.type.name}} type">{{type.type.name}} </button>
+  </mat-card-actions>
+</mat-card>
+</ng-template>
+
+<ng-template #loading >
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>...</mat-card-title>
+    <mat-card-subtitle>...</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+  <mat-spinner></mat-spinner>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>???</button>
+  </mat-card-actions>
+</mat-card>
+</ng-template>

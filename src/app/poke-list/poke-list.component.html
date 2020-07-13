@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Buscar</mat-label>
+      <input (keyup)="applyFilter($event.target.value)"  type="tel" matInput placeholder="pika...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </form>
+</mat-toolbar>
+
+<div class="cardList">
+  <app-poke-card class="card" *ngFor="let pokemon of pokemons.filteredData" [url]="pokemon.url"></app-poke-card>
+</div>

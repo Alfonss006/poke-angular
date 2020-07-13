@@ -1,0 +1,19 @@
+
+<mat-card>
+  <mat-card-header>
+      <mat-card-title> Pagina no encontrada <mat-icon>pageview</mat-icon></mat-card-title>
+      <mat-card-subtitle><mat-icon>pageview</mat-icon>Error 404</mat-card-subtitle>
+  </mat-card-header>
+  <img matCardImage src="">
+  <mat-card-content>
+      <h1> 404 :(</h1>
+      <p>la pagina que estabas buscando no existe</p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+      <button color="primary" mat-button (click)="goBack()">Volver Atras</button>
+      <a color="primary" mat-raised-button routerLink="/" >Pagina Principal </a>
+
+  </mat-card-actions>
+  <mat-card-footer align="end">
+  </mat-card-footer>
+</mat-card>

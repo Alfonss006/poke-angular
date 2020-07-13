@@ -1,0 +1,38 @@
+<div *ngIf="!isLoadingPoke && !isLoadingSpecie then details else loading">
+</div>
+<ng-template #details>
+  <mat-card>
+    <mat-card-actions>
+      <button mat-button (click)="goBack()" ><mat-icon>arrow_back</mat-icon></button>
+    </mat-card-actions>
+  <mat-card-header>
+    <mat-card-title>{{pokemon.name}}</mat-card-title>
+    <mat-card-subtitle *ngIf="specie.evolves_from_species">Evoluciona de {{specie.evolves_from_species.name}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="img-container">
+    <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}">
+    <img src="{{pokemon.sprites.back_default}}" alt="{{pokemon.name}}">
+    <img src="{{pokemon.sprites.front_shiny}}" alt="{{pokemon.name}}">
+    <img src="{{pokemon.sprites.back_shiny}}" alt="{{pokemon.name}}">
+    </div>
+    <h3>tipo</h3>
+    <mat-card-actions class="types">
+      <button  *ngFor=" let type  of pokemon.types" mat-button class="{{type.type.name}} type">{{type.type.name}} </button>
+    </mat-card-actions>
+    <h3>habilidades</h3>
+    <mat-card-actions class="abilities">
+      <button  *ngFor=" let ability  of pokemon.abilities" mat-button class="ability">{{ability.ability.name}} </button>
+    </mat-card-actions>
+    <p> Altura : {{pokemon.height / 10}} metros.</p>
+    <p> Peso : {{pokemon.weight / 10 }} kg</p>
+    <ng-container *ngFor="let text of specie.flavor_text_entries">
+      <p *ngIf="text.language.name == 'es'"> Pokedex {{text.version.name}}:  {{text.flavor_text}} </p>
+    </ng-container>
+  </mat-card-content>
+  </mat-card>
+</ng-template>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>
