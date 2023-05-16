@@ -1,6 +1,10 @@
 # Pokemon
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.17
+
+# Important
+
+Use Node.js version 14.15.5
 
 ## Development server
 
